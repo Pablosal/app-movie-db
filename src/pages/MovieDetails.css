@@ -1,0 +1,26 @@
+.full_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  height: 100vh;
+}
+.second_container {
+  height: 500px;
+}
+.second_container img {
+  height: 500px;
+}
+.first_container {
+  height: 500px;
+  width: 35%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  color: white;
+  background-color: black;
+}
+.rankear {
+  display: flex;
+}

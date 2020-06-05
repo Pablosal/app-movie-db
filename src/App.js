@@ -1,23 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import MovieCard from "./components/MovieCard";
+import GenreMovieList from "./components/GenreMovieList";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchGeneros,
+  createGuestSession,
+} from "../src/redux/Peliculas/PeliculasActions";
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchGeneros());
+    dispatch(createGuestSession());
+  }, []);
+  const PeliculasDataDeRedux = useSelector((state) => state.PeliculasReducer);
+
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundColor: "#FBDA44" }}>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <GenreMovieList />
       </header>
     </div>
   );
